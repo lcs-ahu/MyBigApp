@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct DateView: View {
+    @State private var searchText = ""
     var body: some View {
         NavigationStack{
+        
             HStack {
                 VStack{
                     HStack{
@@ -110,20 +112,22 @@ struct DateView: View {
                             .font(.system(size:30.0))
                         Image(systemName: "chevron.right")
                     }
+                    
                 }
-                
-            }
-            .padding()
-            .toolbar{
-                ToolbarItem(placement: .topBarLeading){
-                    Button{
-                        
-                    }label: {
-                        Image(systemName: "chevron.left")
+                .padding()
+                .toolbar{
+                    ToolbarItem(placement: .topBarLeading){
+                        Button{
+                        }label: {
+                            Image(systemName: "chevron.left")
+                        }
                     }
                 }
             }
-        }
+                    }
+        .searchable(text:$searchText)
+        
+        
     }
 }
     
